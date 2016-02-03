@@ -12,6 +12,7 @@
     - show different mice
       - ergo
     - my preferences
+
   - terminals
       - when did we start using them
       - show screenshots of different kinds of terminals
