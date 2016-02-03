@@ -15,7 +15,7 @@ var browserSync = require('browser-sync').create()
 
 var dist = path.join(__dirname, 'dist')
   , libs = path.join(__dirname, 'node_modules')
-  , src = path.join(__dirname, 'src')
+  , src = './src'
 
 var packageName = metadata.name + '-' + metadata.version
 
@@ -50,7 +50,8 @@ gulp.task('css', function () {
 })
 
 gulp.task('assets', function () {
-  // TODO: Process your assets here.
+  return gulp.src(path.join(src, 'assets/**.*'))
+    .pipe(gulp.dest(path.join(dist, 'assets')))
 })
 
 gulp.task('serve', ['default'], function () {
