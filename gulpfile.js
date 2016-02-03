@@ -69,4 +69,3 @@ gulp.task('package', function (cb) {
 gulp.task('clean', function (cb) {
   clean([dist, packageName + '.tar.gz'], cb)
 })
-
