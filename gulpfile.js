@@ -34,7 +34,12 @@ gulp.task('hbs', function () {
 })
 
 gulp.task('js', function () {
-  // TODO: Process your javascript libs here.
+  var js = [path.join(libs, 'reveal.js/js/reveal.js'),
+    path.join(libs, 'reveal.js/lib/js/head.min.js')]
+
+  return gulp.src(js)
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest(path.join(dist, 'js')))
 })
 
 gulp.task('css', function () {
