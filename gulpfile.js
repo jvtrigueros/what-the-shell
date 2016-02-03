@@ -1,6 +1,7 @@
 'use strict'
 
 var gulp = require('gulp')
+  , concat = require('gulp-concat')
   , gzip = require('gulp-gzip')
   , hbs = require('gulp-compile-handlebars')
   , rename = require('gulp-rename')
@@ -37,7 +38,12 @@ gulp.task('js', function () {
 })
 
 gulp.task('css', function () {
-  // TODO: Process your css here.
+  var css = [path.join(libs, 'reveal.js/css/reveal.css')
+    , path.join(libs, 'reveal.js/css/theme/simple.css')]
+
+  return gulp.src(css)
+    .pipe(concat('app.css'))
+    .pipe(gulp.dest(path.join(dist, 'css')))
 })
 
 gulp.task('assets', function () {
@@ -48,7 +54,8 @@ gulp.task('serve', ['default'], function () {
   browserSync.init({
     server: {
       baseDir: dist
-    }
+    },
+    open: false
   })
 
   gulp.watch(path.join(src, '*.hbs'), ['hbs'])
