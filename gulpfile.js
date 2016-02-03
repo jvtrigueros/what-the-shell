@@ -38,7 +38,6 @@ gulp.task('js', function () {
     path.join(libs, 'reveal.js/lib/js/head.min.js')]
 
   return gulp.src(js)
-    .pipe(concat('app.js'))
     .pipe(gulp.dest(path.join(dist, 'js')))
 })
 
@@ -47,7 +46,6 @@ gulp.task('css', function () {
     , path.join(libs, 'reveal.js/css/theme/simple.css')]
 
   return gulp.src(css)
-    .pipe(concat('app.css'))
     .pipe(gulp.dest(path.join(dist, 'css')))
 })
 
